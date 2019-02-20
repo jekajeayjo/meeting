@@ -20,8 +20,8 @@ class Comp implements Comparator <String>
 @Override
     public int compare(String a, String b) {
            int i,j,k;
-        i=a.lastIndexOf(' ');
-        j=b.lastIndexOf(' ');
+        i=a.lastIndexOf(0);
+        j=b.lastIndexOf(0);
         k=a.substring(i).compareTo(b.substring(j));
     if (k==0)
         return a.compareTo(b);
@@ -36,7 +36,7 @@ public class Meeting  {
         String result = "";
         String name = null, lastname = null;
         int i = 0;
-        IdentityHashMap<String, String> nameandlastName = new IdentityHashMap<String, String>((Map<? extends String, ? extends String>) new Comp());
+        IdentityHashMap<String, String> nameandlastName = new IdentityHashMap<String, String>(new Comp());
         Set<Map.Entry<String, String>> set = nameandlastName.entrySet();
         for (String retval : s.split(";")) {
             // System.out.println(retval);
